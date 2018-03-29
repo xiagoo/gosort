@@ -54,7 +54,7 @@ func SortByKey(slice interface{}, sortKey string, sortType int) {
 			if consts.Asc == sortType {
 				return svi.Float() < svj.Float()
 			}
-			return svi.Float() < svj.Float()
+			return svi.Float() > svj.Float()
 		case reflect.String:
 			if consts.Asc == sortType {
 				return svi.String() < svj.String()
