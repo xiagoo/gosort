@@ -18,8 +18,19 @@ func (bs *baseSort) Len() int           { return bs.length }
 func (bs *baseSort) Less(i, j int) bool { return bs.less(i, j) }
 func (bs *baseSort) Swap(i, j int)      { bs.swap(i, j) }
 
+//SortAscByKey sort slice by key, key should by struct field name
+func SortAscByKey(slice interface{}, sortKey string){
+     sortByKey(slice, sortKey, consts.Asc)
+}
+
+//SortDescByKey sort slice by key, key should by struct field name
+func SortDescByKey(slice interface{}, sortKey string){
+	sortByKey(slice, sortKey, consts.Desc)
+}
+
+
 //SortByKey sort slice by key, key should by struct field name, sort type contain asc and desc
-func SortByKey(slice interface{}, sortKey string, sortType int) {
+func sortByKey(slice interface{}, sortKey string, sortType int) {
 	st := reflect.TypeOf(slice)
 
 	if st.Kind() != reflect.Slice {

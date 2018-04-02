@@ -3,8 +3,6 @@ package slice
 import (
 	"fmt"
 	"testing"
-
-	"github.com/xiagoo/gosort/consts"
 )
 
 func TestSortByKey(t *testing.T) {
@@ -24,10 +22,15 @@ func TestSortByKey(t *testing.T) {
 		},
 	}
 
-	SortByKey(students[:], "Name", consts.Asc)
+	SortAscByKey(students[:], "Name")
 
 	for _, s := range students {
 		fmt.Printf("Student = %+v", s)
 	}
 
+	SortDescByKey(students[:], "Name")
+
+	for _, s := range students {
+		fmt.Printf("Student = %+v", s)
+	}
 }
